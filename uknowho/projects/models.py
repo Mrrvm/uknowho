@@ -19,3 +19,5 @@ class Project(models.Model):
     size = models.CharField(max_length=100)
     projectType = models.IntegerField()
     #postdate = models.DateField()
+    colaborators = Colaborators()
+    labels = Labels()

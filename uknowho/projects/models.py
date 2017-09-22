@@ -1,4 +1,5 @@
 from django.db import models
+from user.models import User
 
 # Create your models here.
 
@@ -6,8 +7,8 @@ class Labels(models.Model):
     label = models.CharField(max_length=30)
 
 class Colaborators(models.Model):
-    #User = models.ForeignKey(User, on_delete=models.CASCADE)
-    pass
+    User = models.ForeignKey(User, on_delete=models.CASCADE, default = None)
+    
 #class location(models.Model):
 
 class Project(models.Model):
@@ -21,3 +22,4 @@ class Project(models.Model):
     #postdate = models.DateField()
     colaborators = Colaborators()
     labels = Labels()
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, default = None)

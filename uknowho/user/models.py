@@ -1,5 +1,5 @@
 from django.db import models
-1
+
 # Create your models here.
 
 class User(models.Model):
@@ -7,7 +7,7 @@ class User(models.Model):
     city = models.CharField(max_length=50)
     firstName = models.CharField(max_length=50)
     lastName = models.CharField(max_length=50)
-    curse = models.CharField(max_length=50)
+    course = models.CharField(max_length=50)
     university = models.CharField(max_length=50)
     phoneNumber = models.IntegerField()
     email = models.CharField(max_length=50)

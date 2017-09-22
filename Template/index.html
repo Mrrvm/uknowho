@@ -9,43 +9,71 @@
     <title>uknowho - Home</title>
   </head>
   <body>
-    <nav class="navbar navbar-inverse">
+     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
           <a class="navbar-brand" href="#">uknowwho</a>
         </div>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Page 1</a></li>
-          <li><a href="#">Page 2</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+              <li><a href="#">Find</a></li>
+              <li><a href="#">Create</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+           <li><a href="#">Login</a></li>
+          </ul>
+        </div>
       </div>
     </nav> 
-    <div class="container">
+    <div id="landingImage" class="container">
       <div class="jumbotron">
-        <h1>Bootstrap Tutorial</h1>
-        <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing
-        responsive, mobile-first projects on the web.</p>
-        <button>IM A BUTTON</button>
+        <h1 style="padding-top:30px;font-weight:bold;">Do you know anyone who?</h1>
+        <h3>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</h3>
+        <div id="jumbotronButtons">
+          <button type="button" class="jumbotronButton">Find Projects</button>
+          <button type="button" class="jumbotronButton">Create Projects</button>
+        </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container" id="categoryItems">
         <div class="row">
-            <div class="col-md-4">
-              1 of 3
+          <div style="padding-bottom:30px;font-size:1.4em" class="col-md-12">
+            Choose your project category
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+              <img class="categoryItem" width="140px" src="images/program.png" />
+              <p>Programming</p>
             </div>
-            <div class="col-md-4">
-              1 of 3
+            <div class="col-md-3">
+              <img class="categoryItem" width="140px" src="images/computer.png" />
+              <p>Electronics</p>
             </div>
-            <div class="col-md-4">
-              1 of 3
+            <div class="col-md-3">
+              <img class="categoryItem" width="140px" src="images/art.png" />
+              <p>Art</p>
+            </div>
+            <div class="col-md-3">
+              <img class="categoryItem" width="140px" src="images/plus.png" />
+              <p>And more!</p>
             </div>
         </div>
     </div>
+    <hr />
+    <div class="container" id="categoryItems">
+      <div class="row">
+        <div style="padding-bottom:30px;font-size:1.4em" class="col-md-12">
+          You know why?
+          <p style="font-size:20px; padding-top:10px;">Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+        </div>
+      </div>
+      </div>
     <footer class="footer">
       <div class="container">
         <span class="text-muted">Place sticky footer content here.</span>

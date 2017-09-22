@@ -6,5 +6,5 @@ app_name = 'user'
 urlpatterns = [
 	# /user/
     url(r'^$', views.index, name='index'),
-
+    
 ]

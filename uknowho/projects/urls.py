@@ -5,6 +5,8 @@ app_name = 'projects'
 
 urlpatterns = [
 	# /projects/
-    url(r'^$', views.index, name='index'),
-    
+    url(r'^$', views.IndexView.as_view(), name='index'),
+
+    # /projects/login
+    url(r'^login/$', views.LoginView.as_view(), name='login')
 ]

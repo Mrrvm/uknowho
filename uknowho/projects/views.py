@@ -11,3 +11,7 @@ class LoginView(generic.TemplateView):
 
 class RegisterView(generic.TemplateView):
 	template_name = 'projects/register.html'
+
+class DashboardView(generic.TemplateView):
+	template_name = 'projects/dashboard.html'
+

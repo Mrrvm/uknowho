@@ -19,3 +19,6 @@ class DashboardView(generic.ListView):
 
 	def get_queryset(self):
 		return Project.objects.all()
+
+class ProfileView(generic.TemplateView):
+	template_name = 'projects/profile.html'

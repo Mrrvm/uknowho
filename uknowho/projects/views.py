@@ -12,7 +12,32 @@ from django.contrib.auth.models import User
 
 
 class IndexView(generic.TemplateView):
-	template_name = 'projects/index.html'
+    template_name = 'projects/index.html'
+
+
+class LoginView(generic.TemplateView):
+    template_name = 'projects/login.html'
+
+class RegisterView(generic.TemplateView):
+    template_name = 'projects/register.html'
+
+
+class UserFormView(View):
+    form_class = UserForm
+    template_name = 'projects/register.html'
+
+    def get(self, request):
+        form = self.form_class(None)
+        return render(request, self.template_name, {'form': form}, RequestContext(request))
+
+    def post(self, request):
+        username = request.POST['username']
+        password = request.POST['password']
+        email = request.POST['email']
+        user = User.objects.create_user(username, email, password)
+        user.save()
+        form = self.form_class(request.POST)
+        return render(request, 'projects/index.html', {'form': form}, RequestContext(request))
 
 class DashboardView(generic.ListView):
 	template_name = 'projects/dashboard.html'
@@ -36,21 +61,3 @@ class SearchByProjectType(generic.ListView):
 	def get_queryset(self):
 		return Project.objects.all(projectType=type)
 
-class UserFormView(View):
-	form_class = UserForm
-	template_name = 'projects/register.html'
-
-	def get(self, request):
-		form = self.form_class(None)
-		return render(request, self.template_name, {'form': form}, RequestContext(request))
-
-	def post(self, request):
-		form = self.form_class(request.POST)
-		username = request.POST.get('username', False)
-		password = request.POST.get('password', False)		
-		email = request.POST.get('email', False)
-		user = User.objects.create_user(username, email, password)
-		user.save()
-		return render(request, 'projects/index.html', {'form', form}, RequestContext(request))
-
-	 	

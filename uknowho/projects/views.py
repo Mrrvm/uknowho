@@ -14,9 +14,6 @@ from django.contrib.auth.models import User
 class IndexView(generic.TemplateView):
 	template_name = 'projects/index.html'
 
-class RegisterView(generic.TemplateView):
-	template_name = 'projects/register.html'
-
 class DashboardView(generic.ListView):
 	template_name = 'projects/dashboard.html'
 	context_object_name = 'all_projects'
@@ -49,9 +46,9 @@ class UserFormView(View):
 
 	def post(self, request):
 		form = self.form_class(request.POST)
-		username = request.POST.get['username', False]
-		password = request.POST.get['password', False]		
-		email = request.POST.get['email', False]
+		username = request.POST.get('username', False)
+		password = request.POST.get('password', False)		
+		email = request.POST.get('email', False)
 		user = User.objects.create_user(username, email, password)
 		user.save()
 		return render(request, 'projects/index.html', {'form', form}, RequestContext(request))

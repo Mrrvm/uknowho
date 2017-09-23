@@ -30,7 +30,17 @@ class Project(models.Model):
     photo = models.CharField(max_length=2000)
     duration = models.CharField(max_length=100)
     size = models.CharField(max_length=100)
-    projectType = models.IntegerField()
+
+    Other='ot'
+    Software='sw'
+    Hardware='hw'
+    Music='ms'
+    Art='ar'
+    Sport='sp'
+    projectType_CHOICES = ((Software,'software'),(Hardware, 'hardware'),(Music,'music'),(Art,'art'),(Sport,'sport'),(Other,'other'))
+
+    projectType = models.CharField(max_length=2, choices=projectType_CHOICES, default=Other)
+
     #postdate = models.DateField()
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE, default = None)
 

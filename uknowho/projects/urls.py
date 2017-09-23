@@ -18,4 +18,7 @@ urlpatterns = [
 
     #/createproj/
     url(r'^createproj/$', views.ProjectCreate.as_view(), name="project_add"),
+
+    #/123/profile/ (/<user>/profile)
+    #url(r'^profile/)
 ]

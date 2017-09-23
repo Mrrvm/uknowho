@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from .models import Project
 
 # Create your views here.
 class IndexView(generic.TemplateView):
@@ -11,5 +12,10 @@ class LoginView(generic.TemplateView):
 class RegisterView(generic.TemplateView):
 	template_name = 'projects/register.html'
 
-class DashboardView(generic.TemplateView):
+class DashboardView(generic.ListView):
 	template_name = 'projects/dashboard.html'
+
+	context_object_name = 'all_projects'
+
+	def get_queryset(self):
+		return Project.objects.all()

@@ -34,7 +34,7 @@ class Project(models.Model):
     #postdate = models.DateField()
     labels = Labels()
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE, default = None)
-
+    
 
 class Skill(models.Model):
     userid = models.ForeignKey(Profile, on_delete=models.CASCADE)

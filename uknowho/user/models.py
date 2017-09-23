@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class User(models.Model):
+class Profile(models.Model):
     country = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
     firstName = models.CharField(max_length=50)
@@ -18,10 +18,10 @@ class User(models.Model):
 
 
 class Skill(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     skill = models.CharField(max_length=50)
 
 
 class Language(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     language = models.CharField(max_length=40)

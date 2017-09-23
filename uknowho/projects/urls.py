@@ -16,7 +16,7 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'next_page': 'projects/index.html'} ,name='logout'),
 
     # /register/
-    url(r'^register/$', views.RegisterView.as_view(), name='register'),
+    url(r'^register/$', views.UserFormView.as_view(), name='register'),
 
     # /find/
     url(r'^find/$', login_required(views.DashboardView.as_view(), login_url='/login/'), name='find'),

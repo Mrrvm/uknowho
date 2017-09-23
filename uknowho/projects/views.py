@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.template import RequestContext
 from django.views import generic
 from django.views.generic import View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -7,10 +8,11 @@ from django.contrib.auth import authenticate, login
 from .forms import UserForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.contrib.auth.models import User
+
 
 class IndexView(generic.TemplateView):
 	template_name = 'projects/index.html'
-
 
 class RegisterView(generic.TemplateView):
 	template_name = 'projects/register.html'
@@ -36,3 +38,22 @@ class SearchByProjectType(generic.ListView):
 
 	def get_queryset(self):
 		return Project.objects.all(projectType=type)
+
+class UserFormView(View):
+	form_class = UserForm
+	template_name = 'projects/register.html'
+
+	def get(self, request):
+		form = self.form_class(None)
+		return render(request, self.template_name, {'form': form}, RequestContext(request))
+
+	def post(self, request):
+		form = self.form_class(request.POST)
+		username = request.POST.get['username', False]
+		password = request.POST.get['password', False]		
+		email = request.POST.get['email', False]
+		user = User.objects.create_user(username, email, password)
+		user.save()
+		return render(request, 'projects/index.html', {'form', form}, RequestContext(request))
+
+	 	

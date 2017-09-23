@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Project
 
 # Create your views here.
@@ -14,7 +15,6 @@ class RegisterView(generic.TemplateView):
 
 class DashboardView(generic.ListView):
 	template_name = 'projects/dashboard.html'
-
 	context_object_name = 'all_projects'
 
 	def get_queryset(self):
@@ -22,3 +22,8 @@ class DashboardView(generic.ListView):
 
 class ProfileView(generic.TemplateView):
 	template_name = 'projects/profile.html'
+
+class ProjectCreate(CreateView):
+	model = Project
+	fields=['title','description','photo','duration','size','projectType','owner']
+

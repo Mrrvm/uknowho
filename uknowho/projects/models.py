@@ -17,11 +17,11 @@ class Profile(models.Model):
     twitter = models.CharField(max_length=50)
     photo = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.firstName + ' ' + self.lastName
+
     #def get_absolute_url(self):
     #    return reverse('user:detail', kwargs={'pk': self.pk})
-
-class Labels(models.Model):
-    label = models.CharField(max_length=30)#review
 
 # Create a profile first.
 class Project(models.Model):
@@ -32,9 +32,16 @@ class Project(models.Model):
     size = models.CharField(max_length=100)
     projectType = models.IntegerField()
     #postdate = models.DateField()
-    labels = Labels()
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE, default = None)
-    
+
+    #return after form to. p.e. detail of project
+    def get_absolute_url(self):
+        return reverse('projects:index')
+
+class Labels(models.Model):
+    project=models.ForeignKey(Project, on_delete=models.CASCADE,default=None)
+    label = models.CharField(max_length=30)#review
+
 
 class Skill(models.Model):
     userid = models.ForeignKey(Profile, on_delete=models.CASCADE)
@@ -49,4 +56,3 @@ class Language(models.Model):
 class Colaborators(models.Model):
     userid = models.ForeignKey(Profile, on_delete=models.CASCADE, default = None)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, default = None)
-

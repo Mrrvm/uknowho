@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^profile/$', views.ProfileView.as_view(), name='profile'),
 
     #/createproj/
-    url(r'^createproj/$', views.ProjectCreate.as_view(), name="project_add"),
+    url(r'^createproj/$', login_required(views.ProjectCreate.as_view(), login_url='/login/'), name="project_add"),
 
     #/search/hw/
     url(r'^(?P<type>[a-z]{2})/$', views.SearchByProjectType.as_view(),name="search_type"),

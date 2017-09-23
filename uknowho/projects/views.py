@@ -20,14 +20,12 @@ class DashboardView(generic.ListView):
 	context_object_name = 'all_projects'
 
 	def get_queryset(self):
-<<<<<<< HEAD
-		return Project.objects.all()
-=======
 		return Project.objects.all()
 
 class ProfileView(generic.TemplateView):
 	template_name = 'projects/profile.html'
 
+@method_decorator(login_required(login_url='/login/'), name = 'dispatch' )
 class ProjectCreate(CreateView):
 	model = Project
 	fields=['title','description','photo','duration','size','projectType','owner']
@@ -38,4 +36,3 @@ class SearchByProjectType(generic.ListView):
 
 	def get_queryset(self):
 		return Project.objects.all(projectType=type)
->>>>>>> 1dbc1a97460b9f62191efc866ed1c1fdc9cabd81

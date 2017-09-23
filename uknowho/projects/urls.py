@@ -15,4 +15,7 @@ urlpatterns = [
 
     # /find/
     url(r'^find/$', views.DashboardView.as_view(), name='find'),
+
+    #/createproj/
+    url(r'^createproj/$', views.ProjectCreate.as_view(), name="project_add"),
 ]

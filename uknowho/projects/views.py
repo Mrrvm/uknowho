@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Project
 
 # Create your views here.
@@ -18,3 +19,7 @@ class DashboardView(generic.ListView):
 
 	def get_queryset(self):
 		return Project.objects.all()
+
+class ProjectCreate(CreateView):
+	model = Project
+	fields=['title','description','photo','duration','size','projectType','owner']

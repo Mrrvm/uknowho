@@ -1,6 +1,7 @@
 {% extends 'projects/base.html' %}
 
 {% block body %}
+
  	<!-- REGISTER BOX -->
  	<style type="text/css">
  		body {
@@ -9,11 +10,12 @@
  	</style>
  	<div class="container loginCtn">
 
-		<form class="form-signin">
+		<form class="form-signin" method="post">
+            {% csrf_token %}
 			<h1 style="text-align:center;" class="text-muted">Register</h1>
-			<input type="text" class="form-control" placeholder="Name" required="required" autofocus="">
-			<input type="email" class="form-control" placeholder="Email address" required="required" >
-			<input type="password" class="form-control" placeholder="Password" required="required">
+			<input type="text" name="username" class="form-control" placeholder="Name" required="required" autofocus="">
+			<input type="email" name="email" class="form-control" placeholder="Email address" required="required" >
+			<input type="password" name="password" class="form-control" placeholder="Password" required="required">
 			<button class="btn btn-lg btn-primary btn-block" type="submit">
 				Register
 			</button>
@@ -21,6 +23,3 @@
 
 	</div>
 {% endblock body %}
-
- </body>
- </html>

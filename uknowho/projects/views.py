@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import RequestContext
 from django.views import generic
 from django.views.generic import View
@@ -21,7 +21,6 @@ class LoginView(generic.TemplateView):
 class RegisterView(generic.TemplateView):
     template_name = 'projects/register.html'
 
-
 class UserFormView(View):
     form_class = UserForm
     template_name = 'projects/register.html'
@@ -37,7 +36,17 @@ class UserFormView(View):
         user = User.objects.create_user(username, email, password)
         user.save()
         form = self.form_class(request.POST)
+
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect('projects:index')
+
         return render(request, 'projects/index.html', {'form': form}, RequestContext(request))
+
+
 
 class DashboardView(generic.ListView):
 	template_name = 'projects/dashboard.html'

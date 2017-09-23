@@ -6,9 +6,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/> 
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="{% static 'projects/style.css'%}" />
-    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet"/> 
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One" rel="stylesheet"/>
     <title>uknowho - Home</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
               <li><a href="{% url 'projects:find' %}">Find a Project</a></li>
-              <li><a href="#">Create a Project</a></li>
+              <li><a href="{% url 'projects:project_add'%}">Create a Project</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
            <li><a href="{% url 'projects:register' %}">Register</a></li>
@@ -38,7 +38,7 @@
           </ul>
         </div>
       </div>
-    </nav> 
+    </nav>
     {% block body %}{% endblock body %}
 
     <footer class="footer">

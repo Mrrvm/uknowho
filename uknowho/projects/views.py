@@ -27,3 +27,9 @@ class ProjectCreate(CreateView):
 	model = Project
 	fields=['title','description','photo','duration','size','projectType','owner']
 
+class SearchByProjectType(generic.ListView):
+	template_name = 'projects/dashboard.html'
+	context_object_name = 'all_projects'
+
+	def get_queryset(self):
+		return Project.objects.all(projectType=type)

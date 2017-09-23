@@ -20,9 +20,6 @@ class Profile(models.Model):
     #def get_absolute_url(self):
     #    return reverse('user:detail', kwargs={'pk': self.pk})
 
-class Labels(models.Model):
-    label = models.CharField(max_length=30)#review
-
 # Create a profile first.
 class Project(models.Model):
     title = models.CharField(max_length=100)
@@ -32,8 +29,12 @@ class Project(models.Model):
     size = models.CharField(max_length=100)
     projectType = models.IntegerField()
     #postdate = models.DateField()
-    labels = Labels()
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE, default = None)
+
+
+class Labels(models.Model):
+    project=models.ForeignKey(Project, on_delete=models.CASCADE,default=None)
+    label = models.CharField(max_length=30)#review
 
 
 class Skill(models.Model):
@@ -49,4 +50,3 @@ class Language(models.Model):
 class Colaborators(models.Model):
     userid = models.ForeignKey(Profile, on_delete=models.CASCADE, default = None)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, default = None)
-

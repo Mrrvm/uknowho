@@ -7,6 +7,10 @@ urlpatterns = [
 	# /projects/
     url(r'^$', views.IndexView.as_view(), name='index'),
 
-    # /projects/login
-    url(r'^login/$', views.LoginView.as_view(), name='login')
+    # /login/
+    url(r'^login/$', views.LoginView.as_view(), name='login'),
+
+    # /register/
+    url(r'^register/$', views.RegisterView.as_view(), name='register'),
+
 ]

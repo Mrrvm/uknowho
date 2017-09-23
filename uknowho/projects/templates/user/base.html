@@ -27,12 +27,22 @@
               <li><a href="#">Find</a></li>
               <li><a href="#">Create</a></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-           <li id="login"><a href="{% url 'projects:register' %}">Register</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-           <li id="login"><a href="{% url 'projects:login' %}">Login</a></li>
-          </ul>
+
+          {% if user.is_authenticated %}           
+             <ul class="nav navbar-nav navbar-right">
+               <li id="login"><a href="{% url 'projects:logout' %}">Logout</a></li>
+             </ul> 
+             <ul class="nav navbar-nav navbar-right">
+               <li id="login"><a href="#">{{user.username}}</a></li>
+             </ul> 
+          {% else %}
+            <ul class="nav navbar-nav navbar-right">
+             <li id="login"><a href="{% url 'projects:register' %}">Register</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+             <li id="login"><a href="{% url 'projects:login' %}">Login</a></li>
+            </ul>
+          {% endif %}
         </div>
       </div>
     </nav> 

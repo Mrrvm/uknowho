@@ -13,4 +13,6 @@ urlpatterns = [
     # /register/
     url(r'^register/$', views.RegisterView.as_view(), name='register'),
 
+    # /find/
+    url(r'^find/$', views.DashboardView.as_view(), name='find'),
 ]

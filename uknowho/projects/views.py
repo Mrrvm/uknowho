@@ -20,6 +20,10 @@ class DashboardView(generic.ListView):
 	def get_queryset(self):
 		return Project.objects.all()
 
+class ProfileView(generic.TemplateView):
+	template_name = 'projects/profile.html'
+
 class ProjectCreate(CreateView):
 	model = Project
 	fields=['title','description','photo','duration','size','projectType','owner']
+

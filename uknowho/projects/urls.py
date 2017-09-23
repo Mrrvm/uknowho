@@ -5,10 +5,14 @@ app_name = 'projects'
 
 urlpatterns = [
 	# /projects/
-    url(r'^$', views.index, name='index'),
-    #/projects/12345/
-    url(r'^(?P<project_id>[0-9]+)/$', views.detail, name='detail'),
-    #/projects/newProjectForm/
-    url(r'^projects/newProjectForm$',views.newProjectForm, name='newProjectForm'),
+    url(r'^$', views.IndexView.as_view(), name='index'),
 
+    # /login/
+    url(r'^login/$', views.LoginView.as_view(), name='login'),
+
+    # /register/
+    url(r'^register/$', views.RegisterView.as_view(), name='register'),
+
+    # /find/
+    url(r'^find/$', views.DashboardView.as_view(), name='find'),
 ]

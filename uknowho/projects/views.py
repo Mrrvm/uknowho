@@ -1,17 +1,15 @@
-from django.http import HttpResponse
 from django.shortcuts import render
-from django.template import loader
-from .models import Project
+from django.views import generic
 
 # Create your views here.
-def index(request):
-	all_projects=Project.objects.all()
-	template = loader.get_template('projects/index.html')	
+class IndexView(generic.TemplateView):
+	template_name = 'projects/index.html'
 
-	return render(request, 'projects/base.html', {})
+class LoginView(generic.TemplateView):
+	template_name = 'projects/login.html'
 
-def detail(request,project_id):
-	return HttpResponse("<h2> Details for project"+str(project_id)+"</h2>")
+class RegisterView(generic.TemplateView):
+	template_name = 'projects/register.html'
 
-def newProjectForm(request):
-	return HttpResponse("<h1> New Project form</h1>")
+class DashboardView(generic.TemplateView):
+	template_name = 'projects/dashboard.html'

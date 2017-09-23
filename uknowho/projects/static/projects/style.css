@@ -1,4 +1,5 @@
 .navbar {
+  position: relative;
   background-color: white;
   border: none; 
   font-size: 1.7em;
@@ -179,14 +180,18 @@
     }
   }
 
-  a.list-group-item {
+/* DASHBOARD CODE */
+.container{
+  left: 0;
+}
+
+a.list-group-item {
+
     height:auto;
     min-height:220px;
 }
 a.list-group-item.active small {
     color:#fff;
 }
-.stars {
-    margin:20px auto 1px;    
-}
+
 

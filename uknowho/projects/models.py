@@ -30,7 +30,7 @@ class Project(models.Model):
     projectType = models.IntegerField()
     #postdate = models.DateField()
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE, default = None)
-
+    
 
 class Labels(models.Model):
     project=models.ForeignKey(Project, on_delete=models.CASCADE,default=None)

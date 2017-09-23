@@ -2,52 +2,32 @@
 
 {% block body %}
 
-  <div class="container">
-      <div class="row">
-  		<div class="well">
-          <h1 class="text-center">Vote for your favorite</h1>
-          <div class="list-group">
-            {% for project in all_projects %}
-            <a href="#" class="list-group-item active">
-                  <div class="media col-md-3">
-                      <figure class="pull-left">
-                          <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
-                      </figure>
-                  </div>
-                  <div class="col-md-6">
-                      <h4 class="list-group-item-heading"> {{project.title}} </h4>
-                      <p class="list-group-item-text"> {{project.description}}
-                      </p>
-                  </div>
-                  <div class="col-md-3 text-center">
-                      <p> <strong>Est. Duration:</strong> {{project.duration}}</p>
-                      <p> <strong>Nº of elements:</strong> {{project.size}} </p>
-                      <!--<p> <strong>Local:</strong> San Francisco </p> -->
-                      <p> <strong>Submitted by:</strong> {{project.userid}} </p>
-                      <!-- <p> <strong>Posted at:</strong> 1 week ago </p> -->
-                      <button type="button" class="btn btn-default btn-lg btn-block"> Join Now! </button>
-                  </div>
-            </a>
-            {% endfor %}
-            <!--<a href="#" class="list-group-item">
-                  <div class="media col-md-3">
-                      <figure class="pull-left">
-                          <img class="media-object img-rounded img-responsive" src="http://placehold.it/350x250" alt="placehold.it/350x250" >
-                      </figure>
-                  </div>
-                  <div class="col-md-6">
-                      <h4 class="list-group-item-heading"> List group heading </h4>
-                      <p class="list-group-item-text"> Eu eum corpora torquatos, ne postea constituto mea, quo tale lorem facer no. Ut sed odio appetere partiendo, quo meliore salutandi ex. Vix an sanctus vivendo, sed vocibus accumsan petentium ea.
-                          Sed integre saperet at, no nec debet erant, quo dico incorrupte comprehensam ut. Et minimum consulatu ius, an dolores iracundia est, oportere vituperata interpretaris sea an. Sed id error quando indoctum, mel suas saperet at.
-                      </p>
-                  </div>
-                  <div class="col-md-3 text-center">
-                      <p> <strong>Est. Duration:</strong> 2 months</p>
-                      <p> <strong>Nº of elements:</strong> 3 </p>
-                      <p> <strong>Local:</strong> San Francisco </p>
-                      <p> <strong>Submitted by:</strong> El Chupacabra </p>
-                      <p> <strong>Posted at:</strong> 1 week ago </p>
-                      <button type="button" class="btn btn-primary btn-lg btn-block">Join Now!</button>
+<div class="container">
+    <div class="row">
+		<div class="well">
+        <h1 class="text-center">Choose a project of your choice:</h1>
+        <div class="list-group">
+          {% for project in all_projects %}
+                <a href="#" class="list-group-item">
+                    <div class="media col-md-3">
+                        <figure class="pull-left">
+                            <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
+                        </figure>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="list-group-item-heading"> {{project.title}} </h4>
+                        <p class="list-group-item-text"> {{project.description}} </p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <p> <strong>Est. Duration:</strong> {{project.duration}}</p>
+                        <p> <strong>Nº of elements:</strong> {{project.size}} </p>
+                        <p> <strong>Local:</strong> TO DO </p>
+                        <p> <strong>Submitted by:</strong> TO DO </p>
+                        <p> <strong>Posted at:</strong> TO DO </p>
+                        <button type="button" class="btn btn-default btn-lg btn-block" href="#"> Start Creating! </button>
+                    </div>
+              </a>
+          {% endfor %}
 
                   </div>
             </a>-->

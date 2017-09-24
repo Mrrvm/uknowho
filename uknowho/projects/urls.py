@@ -13,7 +13,7 @@ urlpatterns = [
     url(r'^login/$', auth_views.login, {'template_name': 'projects/login.html'}, name='login'),
 
     # /logout/
-    url(r'^logout/$', auth_views.logout, {'next_page': 'projects/index.html'} ,name='logout'),
+    url(r'^logout/$', auth_views.logout, {'template_name': 'projects/index.html'} ,name='logout'),
 
     # /register/
     url(r'^register/$', views.UserFormView.as_view(), name='register'),

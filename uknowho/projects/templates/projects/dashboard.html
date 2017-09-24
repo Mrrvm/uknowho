@@ -8,6 +8,7 @@
     background-color: #eee;
   }
 </style>
+{% load staticfiles %}
 <div id="dashCtn" class="container">
   <div class="row">
       <h1 class="text-center" style="color:black">Find a project!</h1>
@@ -24,7 +25,11 @@
       {% for project in all_projects %}
         <a href="#" class="list-group-item">
             <div class="media col-md-3 dashCol">
-              <img style="border-radius: 0;" class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
+              {% if project.photo == 'default' %}
+              <img class="media-object img-rounded img-responsive" src="{% static 'projects/images/icon_' + project.projectType +'.png' %}" id="dash-img">
+              {% else %}
+              <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
+              {% endif %}
             </div>
             <div class="col-md-6 dashCol">
                 <h4 class="list-group-item-heading"> {{project.title}} </h4>
@@ -42,5 +47,4 @@
     </div>
  	</div>
 </div>
-
 {% endblock body %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.views.generic import View
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -7,6 +7,8 @@ from django.contrib.auth import authenticate, login
 from .forms import UserForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+
+
 
 class IndexView(generic.TemplateView):
 	template_name = 'projects/index.html'
@@ -20,9 +22,7 @@ class DashboardView(generic.ListView):
 	context_object_name = 'all_projects'
 
 	def get_queryset(self):
-<<<<<<< HEAD
-		return Project.objects.all()
-=======
+
 		return Project.objects.all()
 
 class ProfileView(generic.TemplateView):
@@ -37,5 +37,4 @@ class SearchByProjectType(generic.ListView):
 	context_object_name = 'all_projects'
 
 	def get_queryset(self):
-		return Project.objects.all(projectType=type)
->>>>>>> 1dbc1a97460b9f62191efc866ed1c1fdc9cabd81
+		return Project.objects.filter(projectType=type)

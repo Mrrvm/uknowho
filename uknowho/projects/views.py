@@ -9,14 +9,15 @@ from .forms import UserForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
+from .send_email import send_email
 
 
 class IndexView(generic.TemplateView):
-    template_name = 'projects/index.html'
+	template_name = 'projects/index.html'
 
 
 class LoginView(generic.TemplateView):
-    template_name = 'projects/login.html'
+	template_name = 'projects/login.html'
 
 class UserFormView(View):
     form_class = UserForm

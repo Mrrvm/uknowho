@@ -13,13 +13,24 @@
 <div id="dashCtn" class="container">
   <div class="row">
       <h1 class="text-center" style="color:black">Find a project!</h1>
-      <div class="row">
-        <div class="col-md-12">
-          <ul>
-            {% for key, value in Project.projectType_CHOICES %}
-            <li>{{value}} </li>
-            {% endfor %}
-          </ul>
+      <div class="row" style="padding-left:20px;padding-right:20px;padding-top:10px;padding-bottom:20px;">
+        <div class="col-md-2">
+          <a href="/search/sw/"><button type="button" class="btn btn-default btn-block" style="background-color:#eee;color:black;"> Software </button></a>
+        </div>
+        <div class="col-md-2">
+          <a href="/search/hw/"><button type="button" class="btn btn-default btn-block" style="background-color:#eee;color:black;"> Hardware </button></a>
+        </div>
+        <div class="col-md-2">
+          <a href="/search/ar/"><button type="button" class="btn btn-default btn-block" style="background-color:#eee;color:black;"> Art </button></a>
+        </div>
+        <div class="col-md-2">
+          <a href="/search/sp/"><button type="button" class="btn btn-default btn-block" style="background-color:#eee;color:black;"> Sport </button></a>
+        </div>
+        <div class="col-md-2">
+          <a href="/search/ms/"><button type="button" class="btn btn-default btn-block" style="background-color:#eee;color:black;"> Music </button></a>
+        </div>
+        <div class="col-md-2">
+          <a href="/search/ot/"><button type="button" class="btn btn-default btn-block" style="background-color:#eee;color:black;"> Others </button></a>
         </div>
       </div>
       <div class="list-group">

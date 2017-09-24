@@ -239,7 +239,7 @@ a.list-group-item.active small {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1035px) {
     .dashCol {
       padding: 10px;
     }

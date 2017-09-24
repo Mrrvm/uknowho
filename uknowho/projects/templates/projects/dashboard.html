@@ -26,7 +26,7 @@
         <a href="#" class="list-group-item">
             <div class="media col-md-3 dashCol">
               {% if project.photo == 'default' %}
-              <img class="media-object img-rounded img-responsive" src="{% static 'projects/images/icon_' + project.projectType +'.png' %}" id="dash-img">
+              <img style="width:150px;padding-top:30px" class="media-object img-rounded img-responsive" src="{% with 'projects/images/icon_'|add:project.projectType|add:'.png' as image_static%} {% static image_static %}{% endwith %}" id="dash-img">
               {% else %}
               <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
               {% endif %}

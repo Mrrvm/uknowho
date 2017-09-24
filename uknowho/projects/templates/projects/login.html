@@ -1,17 +1,23 @@
 {% extends 'projects/base.html' %}
 
+{% block title%} Login {% endblock %}
+
 {% block body %}
  	<!-- LOGIN BOX -->
  	<style type="text/css">
  		body {
- 			background-color: gray;
+ 			background-color: #eee;
  		}
  	</style>
-	<div class="container loginCtn">
-		<form class="form-signin">
+	<div class="container loginCtn" method="post">
+		<form class="form-signin" action="{% url 'projects:login' %}" method='post'>
+			{% csrf_token %}
 			<h1 style="text-align:center;" class="text-muted">Login</h1>
-			<input type="text" class="form-control" placeholder="Email address" required="required" autofocus="">
-			<input type="password" class="form-control" placeholder="Password" required="required">
+			{% if error_message %}
+				<p><strong>{{error_message}}</strong></p>
+			{% endif %}
+			<input type="text" class="form-control" placeholder="username" name="username" required="required" autofocus="">
+			<input type="password" class="form-control" placeholder="Password" name="password" required="required">
 			<button class="btn btn-lg btn-primary btn-block" type="submit">
 				Login
 			</button>

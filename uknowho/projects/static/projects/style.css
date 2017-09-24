@@ -1,13 +1,13 @@
 .navbar {
   position: relative;
   background-color: white;
-  border: none; 
+  border: none;
   font-size: 1.7em;
   margin-bottom: 0;
 }
 
 .navbar li:hover, .navbar li:active, .navbar li:focus {
-  background-color: white;  
+  background-color: white;
 }
 
 .navbar-inverse .navbar-nav li a:hover, .navbar-inverse .navbar-nav li a:focus {
@@ -19,7 +19,11 @@
   font-size: 1.2em;
 }
 
-.navbar-inverse .navbar-brand:hover, 
+.brand {
+  font-family: 'Alfa Slab One', cursive;
+}
+
+.navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
   background-color: transparent;
   color: #999999;
@@ -85,13 +89,13 @@
     height: 60px;
     line-height: 60px;
     background-color: #f5f5f5;
-    font-size: 1.3em; 
+    font-size: 1.3em;
 }
 
 
 /* LOGIN CSS CODE */
 
-  .btn 
+  .btn
   {
    outline:0;
    border:none;
@@ -167,13 +171,17 @@
     border-bottom-style: solid;
     border-left-style: solid;
     border-color: rgb(0,0,0);
-    
+
   }
 
   .loginCtn {
       background-color: white;
       color: black;
       padding-bottom: 80px;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 04ef7da3fa24a0212ac1c53349193ec154868b06
   }
 
 
@@ -223,4 +231,7 @@ a.list-group-item {
 a.list-group-item.active small {
     color:#fff;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 04ef7da3fa24a0212ac1c53349193ec154868b06

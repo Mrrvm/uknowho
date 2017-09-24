@@ -1,11 +1,13 @@
 {% extends 'projects/base.html' %}
 
+{% block title%} Dashboard {% endblock %}
+
 {% block body %}
 
 <div class="container">
     <div class="row">
 		<div class="well">
-        <h1 class="text-center">Choose a project of your choice:</h1>
+        <h1 class="text-center" >Choose a project of your choice:</h1>
         <div class="list-group">
           {% for project in all_projects %}
                 <a href="#" class="list-group-item">
@@ -18,19 +20,18 @@
                         <h4 class="list-group-item-heading"> {{project.title}} </h4>
                         <p class="list-group-item-text"> {{project.description}} </p>
                     </div>
-                    <div class="col-md-3 text-center">
+                    <div class="col-md-3 text-left">
+                        <p> <strong>Project Type:</strong> {{project.projectType}}</p>
                         <p> <strong>Est. Duration:</strong> {{project.duration}}</p>
                         <p> <strong>Nº of elements:</strong> {{project.size}} </p>
-                        <p> <strong>Local:</strong> TO DO </p>
-                        <p> <strong>Submitted by:</strong> TO DO </p>
-                        <p> <strong>Posted at:</strong> TO DO </p>
+                        <p> <strong>Submitted by:</strong> {{project.owner.username}} </p>
                         <button type="button" class="btn btn-default btn-lg btn-block" href="#"> Start Creating! </button>
                     </div>
               </a>
           {% endfor %}
 
                   </div>
-            </a>-->
+            </a>
 
           </div>
           </div>

@@ -71,6 +71,11 @@
   border: none
 }
 
+#jumbotronButtons button:hover {
+  background-color: gray;
+  color: white;
+}
+
 #categoryItems {
   padding-top: 20px;
   padding-bottom: 40px;
@@ -95,23 +100,20 @@
 
 /* LOGIN CSS CODE */
 
-  .btn
-  {
+  .btn {
    outline:0;
    border:none;
    background-color: #CA9F5F;
+   color: white;
   }
-  .btn:focus
-  {
-   outline:0;
-   -webkit-outline:0;
-   -moz-outline:0;
-   background-color: gray;
+
+  .btn:focus {
+    color:  white;
+    background-color: gray;
   }
 
   .btn:hover {
     background-color: gray;
-
   }
 
   .btn-primary:active:focus  {
@@ -178,10 +180,6 @@
       background-color: white;
       color: black;
       padding-bottom: 80px;
-<<<<<<< HEAD
-=======
-
->>>>>>> 04ef7da3fa24a0212ac1c53349193ec154868b06
   }
 
 
@@ -231,7 +229,4 @@ a.list-group-item {
 a.list-group-item.active small {
     color:#fff;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 04ef7da3fa24a0212ac1c53349193ec154868b06

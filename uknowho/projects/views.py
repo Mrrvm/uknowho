@@ -18,9 +18,6 @@ class IndexView(generic.TemplateView):
 class LoginView(generic.TemplateView):
     template_name = 'projects/login.html'
 
-class RegisterView(generic.TemplateView):
-    template_name = 'projects/register.html'
-
 class UserFormView(View):
     form_class = UserForm
     template_name = 'projects/register.html'
@@ -46,8 +43,7 @@ class UserFormView(View):
 
         return render(request, 'projects/index.html', {'form': form}, RequestContext(request))
 
-
-
+@method_decorator(login_required(login_url='/login/'), name = 'dispatch' )
 class DashboardView(generic.ListView):
 	template_name = 'projects/dashboard.html'
 	context_object_name = 'all_projects'
@@ -68,5 +64,4 @@ class SearchByProjectType(generic.ListView):
 	context_object_name = 'all_projects'
 
 	def get_queryset(self):
-		return Project.objects.all(projectType=type)
-
+		return Project.objects.filter(projectType=self.type)

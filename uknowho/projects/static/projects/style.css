@@ -104,7 +104,6 @@
    outline:0;
    border:none;
    background-color: #CA9F5F;
-   color: white;
   }
 
   .btn:focus {
@@ -185,7 +184,7 @@
 
   @media (min-width: 600px) {
     .loginCtn {
-      margin-top: 13%;
+      margin-top: 11%;
       width: 600px;
     }
   }
@@ -217,10 +216,6 @@
   }
 
 /* DASHBOARD CODE */
-.container{
-  left: 0;
-}
-
 a.list-group-item {
 
     height:auto;
@@ -228,5 +223,27 @@ a.list-group-item {
 }
 a.list-group-item.active small {
     color:#fff;
+}
+
+#dashCtn {
+  left: 0;
+  bottom: 50px;
+  background-color:white;
+  margin-bottom: 7%;
+}
+
+@media (min-width: 600px) {
+    #dashCtn {
+      margin-top: 3%;
+    }
+}
+
+@media (max-width: 600px) {
+    .dashCol {
+      padding: 10px;
+    }
+    .media img {
+      display: block;
+      margin: auto;
 }
 

@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.conf import settings
+from projects.choices import *
+
 
 # Create your models here.
 class Profile(models.Model):
@@ -32,15 +34,7 @@ class Project(models.Model):
     duration = models.CharField(max_length=100)
     size = models.CharField(max_length=100)
 
-    Other='ot'
-    Software='sw'
-    Hardware='hw'
-    Music='ms'
-    Art='ar'
-    Sport='sp'
-    projectType_CHOICES = ((Software,'software'),(Hardware, 'hardware'),(Music,'music'),(Art,'art'),(Sport,'sport'),(Other,'other'))
-
-    projectType = models.CharField(max_length=2, choices=projectType_CHOICES, default=Other)
+    projectType = models.CharField(max_length=2, choices=projectType_CHOICES, default='ot')
 
     #postdate = models.DateField()
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default = None)

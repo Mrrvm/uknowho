@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.template import RequestContext
 from django.views import generic
 from django.views.generic import View
@@ -20,7 +20,6 @@ class IndexView(generic.TemplateView):
 
 class LoginView(generic.TemplateView):
 	template_name = 'projects/login.html'
-
 
 class UserFormView(View):
     form_class = UserForm
@@ -47,7 +46,6 @@ class UserFormView(View):
 
         return render(request, 'projects/index.html', {'form': form}, RequestContext(request))
 
-
 @method_decorator(login_required(login_url='/login/'), name = 'dispatch' )
 class DashboardView(generic.ListView):
 	template_name = 'projects/dashboard.html'
@@ -66,8 +64,10 @@ class ProjectCreate(CreateView):
 	fields=['title','description','photo','duration','size','projectType','owner']
 
 class SearchByProjectType(generic.ListView):
+	model = Project
 	template_name = 'projects/dashboard.html'
 	context_object_name = 'all_projects'
 
 	def get_queryset(self):
-		return Project.objects.filter(projectType=type)
+		projtype = self.kwargs['type']
+		return Project.objects.filter(projectType=projtype)

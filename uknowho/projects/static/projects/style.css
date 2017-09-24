@@ -71,6 +71,11 @@
   border: none
 }
 
+#jumbotronButtons button:hover {
+  background-color: gray;
+  color: white;
+}
+
 #categoryItems {
   padding-top: 20px;
   padding-bottom: 40px;
@@ -95,24 +100,26 @@
 
 /* LOGIN CSS CODE */
 
-  .btn
-  {
+  .btn {
    outline:0;
    border:none;
    background-color: #CA9F5F;
+   color: white;
   }
-  .btn:focus
-  {
-   outline:0;
-   -webkit-outline:0;
-   -moz-outline:0;
+
+  .btn:focus {
+    color:  white;
+    background-color: gray;
   }
 
   .btn:hover {
     background-color: gray;
-
   }
 
+  .btn-primary:active:focus  {
+    background-color: gray;
+  }
+  
   .form-signin {
     max-width: 280px;
     padding: 15px;
@@ -173,7 +180,6 @@
       background-color: white;
       color: black;
       padding-bottom: 80px;
-
   }
 
 
@@ -182,6 +188,32 @@
       margin-top: 13%;
       width: 600px;
     }
+  }
+
+
+.createCtn {
+  background-color: white;
+  color: black;
+  padding-bottom: 20px;
+  padding-top: 30px;
+}
+
+@media (min-width: 600px) {
+    .CreateCtn {
+      margin-top: 7%;
+      width: 600px;
+    }
+}
+
+.form-horizontal {
+  padding: 20px;
+  font-size: 1.3em;
+}
+
+  .createCtn {
+      background-color: white;
+      color: black;
+      padding-bottom: 40px;
   }
 
 /* DASHBOARD CODE */
@@ -197,3 +229,4 @@ a.list-group-item {
 a.list-group-item.active small {
     color:#fff;
 }
+

@@ -9,47 +9,52 @@ from .forms import UserForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
+from .send_email import send_email
 
 
 class IndexView(generic.TemplateView):
-    template_name = 'projects/index.html'
+	template_name = 'projects/index.html'
 
 
 class LoginView(generic.TemplateView):
-    template_name = 'projects/login.html'
+	template_name = 'projects/login.html'
 
 class RegisterView(generic.TemplateView):
-    template_name = 'projects/register.html'
-
+	template_name = 'projects/register.html'
 
 
 class UserFormView(View):
-    form_class = UserForm
-    template_name = 'projects/register.html'
+	form_class = UserForm
+	template_name = 'projects/register.html'
 
-    def get(self, request):
-        form = self.form_class(None)
-        return render(request, self.template_name, {'form': form}, RequestContext(request))
+	def get(self, request):
+		form = self.form_class(None)
+		return render(request, self.template_name, {'form': form}, RequestContext(request))
 
-    def post(self, request):
-        username = request.POST['username']
-        password = request.POST['password']
-        email = request.POST['email']
-        user = User.objects.create_user(username, email, password)
-        user.save()
-        form = self.form_class(request.POST)
-        return render(request, 'projects/index.html', {'form': form}, RequestContext(request))
-        #if form.is_valid():
-            #user = form.save(commit=True)
-            #username = form.cleaned_data['username']
-            #password = form.cleaned_data['password']
-            #email = form.cleaned_data['email']
-            #user.save()
-            #user = authenticate(username=username, password=password)
-            #if user.is_active():
-            #    login(request, user)
-            #return redirect('projects/index.html')
-        #return render(request, 'projects/register.html', {'form': form})
+	def post(self, request):
+		username = request.POST['username']
+		password = request.POST['password']
+		email = request.POST['email']
+		user = User.objects.create_user(username, email, password)
+		user.save()
+		form = self.form_class(request.POST)
+		message = "Welcome to uknowho\n\nCreate a new " \
+				  "project if you have already an idea or " \
+				  "find one today!\n\nBest regards,\nuknowho team"
+		send_email(email, message)
+		return render(request, 'projects/index.html', {'form': form}, RequestContext(request))
+
+		#if form.is_valid():
+			#user = form.save(commit=True)
+			#username = form.cleaned_data['username']
+			#password = form.cleaned_data['password'
+			#email = form.cleaned_data['email']
+			#user.save()
+			#user = authenticate(username=username, password=password)
+			#if user.is_active():
+				#    login(request, user)
+			#return redirect('projects/index.html')
+		#return render(request, 'projects/register.html', {'form': form})
 
 class DashboardView(generic.ListView):
 	template_name = 'projects/dashboard.html'

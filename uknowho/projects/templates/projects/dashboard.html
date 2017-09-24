@@ -3,7 +3,7 @@
 {% block title%} Dashboard {% endblock %}
 
 {% block body %}
-
+{% load staticfiles %}
 <div class="container">
     <div class="row">
 		<div class="well">
@@ -13,7 +13,11 @@
                 <a href="#" class="list-group-item">
                     <div class="media col-md-3">
                         <figure class="pull-left">
+                            {% if project.photo == 'default' %}
+                            <img class="media-object img-rounded img-responsive" src="{% static 'projects/images/icon_' + project.projectType +'.png' %}" id="dash-img">
+                            {% else %}
                             <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
+                            {% endif %}
                         </figure>
                     </div>
                     <div class="col-md-6">

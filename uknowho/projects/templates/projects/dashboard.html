@@ -29,7 +29,8 @@
                         <p> <strong>Est. Duration:</strong> {{project.duration}}</p>
                         <p> <strong>Nº of elements:</strong> {{project.size}} </p>
                         <p> <strong>Submitted by:</strong> {{project.owner.username}} </p>
-                        <button type="button" class="btn btn-default btn-lg btn-block" href="#"> Start Creating! </button>
+            
+                        <input class="btn btn-default btn-lg btn-block" type="button" value="Start Creating!" onclick="location.href='{% url 'projects:projectSubscribe' project.pk %}'"/>
                     </div>
               </a>
           {% endfor %}

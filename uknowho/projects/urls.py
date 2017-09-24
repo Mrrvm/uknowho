@@ -30,6 +30,7 @@ urlpatterns = [
     #/search/hw/
     url(r'^search/(?P<type>[a-z]{2})/$', views.SearchByProjectType.as_view(),name="search_type"),
 
-    #/123/profile/ (/<user>/profile)
-    #url(r'^profile/)
+    #/projects/123/
+    url(r'^projects/(?P<project_id>[0-9]+)/$', views.ProjectSubscribe.as_view(),name="projectSubscribe"),
+    
 ]

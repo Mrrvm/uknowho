@@ -11,9 +11,6 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
 from .send_email import send_email
 
-
-
-
 class IndexView(generic.TemplateView):
 	template_name = 'projects/index.html'
 
@@ -71,3 +68,25 @@ class SearchByProjectType(generic.ListView):
 	def get_queryset(self):
 		projtype = self.kwargs['type']
 		return Project.objects.filter(projectType=projtype)
+
+class ProjectSubscribe(generic.ListView):
+	model = Project
+	template_name = 'projects/index.html'
+
+	def get_queryset(self):
+		projectID = self.kwargs['project_id']
+
+		username = self.request.user.username
+		email = self.request.user.email
+
+		print("username" + username)
+
+		print("project ID is " + projectID)
+
+		project = Project.objects.get(pk=projectID)
+
+		send_email(project.owner.email, username, email, project.title)
+
+		return redirect('projects:index')
+
+

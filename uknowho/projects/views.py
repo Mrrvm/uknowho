@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import RequestContext
 from django.views import generic
 from django.views.generic import View
@@ -19,6 +19,7 @@ class IndexView(generic.TemplateView):
 class LoginView(generic.TemplateView):
 	template_name = 'projects/login.html'
 
+#<<<<<<< HEAD
 class RegisterView(generic.TemplateView):
 	template_name = 'projects/register.html'
 
@@ -55,7 +56,34 @@ class UserFormView(View):
 				#    login(request, user)
 			#return redirect('projects/index.html')
 		#return render(request, 'projects/register.html', {'form': form})
+'''=======
+class UserFormView(View):
+    form_class = UserForm
+    template_name = 'projects/register.html'
 
+    def get(self, request):
+        form = self.form_class(None)
+        return render(request, self.template_name, {'form': form}, RequestContext(request))
+
+    def post(self, request):
+        username = request.POST['username']
+        password = request.POST['password']
+        email = request.POST['email']
+        user = User.objects.create_user(username, email, password)
+        user.save()
+        form = self.form_class(request.POST)
+
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return redirect('projects:index')
+
+        return render(request, 'projects/index.html', {'form': form}, RequestContext(request))
+>>>>>>> ead78991a277353678209375944d4cd65a9afbbb'''
+
+@method_decorator(login_required(login_url='/login/'), name = 'dispatch' )
 class DashboardView(generic.ListView):
 	template_name = 'projects/dashboard.html'
 	context_object_name = 'all_projects'
@@ -76,5 +104,4 @@ class SearchByProjectType(generic.ListView):
 	context_object_name = 'all_projects'
 
 	def get_queryset(self):
-		return Project.objects.all(projectType=type)
-
+		return Project.objects.filter(projectType=self.type)

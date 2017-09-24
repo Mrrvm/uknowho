@@ -18,8 +18,8 @@ urlpatterns = [
     # /register/
     url(r'^register/$', views.UserFormView.as_view(), name='register'),
 
-    # /find/
-    url(r'^find/$', login_required(views.DashboardView.as_view(), login_url='/login/'), name='find'),
+    # /dashboard/
+    url(r'^dashboard/$', login_required(views.DashboardView.as_view(), login_url='/login/'), name='find'),
 
     # /profile/
     url(r'^profile/$', views.ProfileView.as_view(), name='profile'),
@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^createproj/$', login_required(views.ProjectCreate.as_view(), login_url='/login/'), name="project_add"),
 
     #/search/hw/
-    url(r'^(?P<type>[a-z]{2})/$', views.SearchByProjectType.as_view(),name="search_type"),
+    url(r'^search/(?P<type>[a-z]{2})/$', views.SearchByProjectType.as_view(),name="search_type"),
 
     #/123/profile/ (/<user>/profile)
     #url(r'^profile/)

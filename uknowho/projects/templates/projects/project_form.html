@@ -3,7 +3,7 @@
 {% block body %}
 <style type="text/css">
     body {
-      background-color: gray;
+      background-color: #eee;
     }
 </style>
 <div class="container createCtn">
@@ -17,9 +17,9 @@
           <span class="text-danger small"> {{field.errors}}</span>
       </div>
       {% endfor %}
-          <button class="btn btn-lg btn-primary btn-block" type="submit">
-            Post project
-          </button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">
+        Post project
+      </button>
     </form>
 </div>
 {% endblock %}

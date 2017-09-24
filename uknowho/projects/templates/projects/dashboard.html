@@ -3,44 +3,60 @@
 {% block title%} Dashboard {% endblock %}
 
 {% block body %}
+<style type="text/css">
+  body {
+    background-color: #eee;
+  }
+</style>
 {% load staticfiles %}
-<div class="container">
-    <div class="row">
-		<div class="well">
-        <h1 class="text-center" >Choose a project of your choice:</h1>
-        <div class="list-group">
-          {% for project in all_projects %}
-                <a href="#" class="list-group-item">
-                    <div class="media col-md-3">
-                        <figure class="pull-left">
-                            {% if project.photo == 'default' %}
-                            <img class="media-object img-rounded img-responsive" src="{% static 'projects/images/icon_' + project.projectType +'.png' %}" id="dash-img">
-                            {% else %}
-                            <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
-                            {% endif %}
-                        </figure>
-                    </div>
-                    <div class="col-md-6">
-                        <h4 class="list-group-item-heading"> {{project.title}} </h4>
-                        <p class="list-group-item-text"> {{project.description}} </p>
-                    </div>
-                    <div class="col-md-3 text-left">
-                        <p> <strong>Project Type:</strong> {{project.projectType}}</p>
-                        <p> <strong>Est. Duration:</strong> {{project.duration}}</p>
-                        <p> <strong>Nº of elements:</strong> {{project.size}} </p>
-                        <p> <strong>Submitted by:</strong> {{project.owner.username}} </p>
-            
-                        <input class="btn btn-default btn-lg btn-block" type="button" value="Start Creating!" onclick="location.href='{% url 'projects:projectSubscribe' project.pk %}'"/>
-                    </div>
-              </a>
-          {% endfor %}
 
-                  </div>
-            </a>
-
-          </div>
-          </div>
-  	</div>
-  </div>
-
+<div id="dashCtn" class="container">
+  <div class="row">
+      <h1 class="text-center" style="color:black">Find a project!</h1>
+      <div class="row" style="padding-left:20px;padding-right:20px;padding-top:10px;padding-bottom:20px;">
+        <div class="col-md-2">
+          <a href="/search/sw/"><button type="button" class="btn btn-default btn-block" style="background-color:#eee;color:black;"> Software </button></a>
+        </div>
+        <div class="col-md-2">
+          <a href="/search/hw/"><button type="button" class="btn btn-default btn-block" style="background-color:#eee;color:black;"> Hardware </button></a>
+        </div>
+        <div class="col-md-2">
+          <a href="/search/ar/"><button type="button" class="btn btn-default btn-block" style="background-color:#eee;color:black;"> Art </button></a>
+        </div>
+        <div class="col-md-2">
+          <a href="/search/sp/"><button type="button" class="btn btn-default btn-block" style="background-color:#eee;color:black;"> Sport </button></a>
+        </div>
+        <div class="col-md-2">
+          <a href="/search/ms/"><button type="button" class="btn btn-default btn-block" style="background-color:#eee;color:black;"> Music </button></a>
+        </div>
+        <div class="col-md-2">
+          <a href="/search/ot/"><button type="button" class="btn btn-default btn-block" style="background-color:#eee;color:black;"> Others </button></a>
+        </div>
+      </div>
+      <div class="list-group">
+      {% for project in all_projects %}
+        <a href="#" class="list-group-item">
+            <div class="media col-md-3 dashCol">
+              {% if project.photo == 'default' %}
+              <img style="width:150px;padding-top:30px" class="media-object img-rounded img-responsive" src="{% with 'projects/images/icon_'|add:project.projectType|add:'.png' as image_static%} {% static image_static %}{% endwith %}" id="dash-img">
+              {% else %}
+              <img class="media-object img-rounded img-responsive"  src="http://placehold.it/350x250" alt="placehold.it/350x250" >
+              {% endif %}
+            </div>
+            <div class="col-md-6 dashCol">
+                <h4 class="list-group-item-heading"> {{project.title}} </h4>
+                <p class="list-group-item-text"> {{project.description}} </p>
+            </div>
+            <div class="col-md-3 text-left dashCol">
+                <p> <strong>Project Type:</strong> {{project.get_projectType_display}}</p>
+                <p> <strong>Est. Duration:</strong> {{project.duration}}</p>
+                <p> <strong>Nº of elements:</strong> {{project.size}} </p>
+                <p> <strong>Submitted by:</strong> {{project.owner.username}} </p>
+                <input class="btn btn-default btn-lg btn-block" type="button" style="color:white;" value="Start Creating!" onclick="location.href='{% url 'projects:projectSubscribe' project.pk %}'"/>
+            </div>
+        </a>
+    {% endfor %}
+    </div>
+ 	</div>
+</div>
 {% endblock body %}

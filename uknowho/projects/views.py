@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
 from .send_email import send_email
+from projects.choices import *
 
 class IndexView(generic.TemplateView):
 	template_name = 'projects/index.html'

@@ -198,8 +198,8 @@
 }
 
 @media (min-width: 600px) {
-    .CreateCtn {
-      margin-bottom: 10%;
+    .createCtn {
+      margin-top: 4%;
       width: 600px;
     }
 }

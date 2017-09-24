@@ -19,7 +19,7 @@ class Profile(models.Model):
     photo = models.CharField(max_length=20)
 
     def __str__(self):
-        return self.firstName + ' ' + self.lastName
+        return self.firstName + ' ' + self.lastName + '/' + self.username
 
     #def get_absolute_url(self):
     #    return reverse('user:detail', kwargs={'pk': self.pk})
@@ -44,6 +44,9 @@ class Project(models.Model):
 
     #postdate = models.DateField()
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default = None)
+
+    def __str__(self):
+        return self.title + ' ' + self.duration
 
     #return after form to. p.e. detail of project
     def get_absolute_url(self):

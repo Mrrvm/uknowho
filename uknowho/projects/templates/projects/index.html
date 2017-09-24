@@ -7,11 +7,13 @@
 {% block body %}
     <div id="landingImage" class="container">
       <div class="jumbotron">
-        <h1 style="padding-top:30px;font-weight:bold;">Do you know anyone who?</h1>
-        <h3>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</h3>
+        <h1 style:"padding-top:30px;font-weight:bold;">Do you know anyone who?</h1>
+        <h2><span class="brand">uknowho</span> is a website dedicated to everyone with the maker spirit.
+        Join a Project and meet the team or just simply scoll through projects
+        for ideas and inspiration.</h2>
         <div id="jumbotronButtons">
-          <button type="button" class="jumbotronButton">Find Projects</button>
-          <button type="button" class="jumbotronButton">Create Projects</button>
+          <a href="{% url 'projects:find' %}"><button type="button" class="jumbotronButton">Find Projects</button></a>
+          <a href="{% url 'projects:project_add'%}"><button type="button" class="jumbotronButton">Create Projects</button></a>
         </div>
       </div>
     </div>
@@ -44,25 +46,32 @@
       <div class="container">
           <div class="row">
             <div style="text-align:center;padding-bottom:30px;font-size:2.1em" class="col-md-12">
-            You know why?
+            Where the idea came from?
           </div>
       </div>
     </div>
       <div class="row">
         <div class="col-md-12">
-          <p style="text-align:center;font-size:20px; padding-top:10px;">Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+          <p style="text-align:center;font-size:20px; padding-top:10px;">As students
+          and makers we often need to work on group projects. Unfortunately it is
+          possible that not everyone on the team share the same commitement and
+          even goals. As such knowing a bit about who will be on your team is a
+          big help for the success of your projects.</p>
         </div>
       </div>
     </div>
     <div style="padding-bottom: 150px; padding-top: 40px;" class="container">
       <div class="row">
           <div style="text-align:center;padding-bottom:30px;font-size:2.1em" class="col-md-12">
-            About Us
+            About Hackerschool
           </div>
       </div>
       <div class="row">
         <div class="col-md-12">
-          <p style="text-align:center;font-size:20px; padding-top:10px;">Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+          <p style="text-align:center;font-size:20px; padding-top:10px;">Hackerscool
+          is an independent student group that dedicates its time to teaching
+          the community, through workshops and events, and developing innovative
+          projects.</p>
         </div>
       </div>
     </div>

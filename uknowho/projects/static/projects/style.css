@@ -102,11 +102,16 @@
    outline:0;
    -webkit-outline:0;
    -moz-outline:0;
+   background-color: gray;
   }
 
   .btn:hover {
     background-color: gray;
 
+  }
+
+  .btn-primary:active:focus  {
+    background-color: gray;
   }
   
   .form-signin {
@@ -179,6 +184,32 @@
     }
   }
 
+
+.createCtn {
+  background-color: white;
+  color: black;
+  padding-bottom: 20px;
+  padding-top: 30px;
+}
+
+@media (min-width: 600px) {
+    .CreateCtn {
+      margin-top: 7%;
+      width: 600px;
+    }
+}
+
+.form-horizontal {
+  padding: 20px;
+  font-size: 1.3em;
+}
+
+  .createCtn {
+      background-color: white;
+      color: black;
+      padding-bottom: 40px;
+  }
+
 /* DASHBOARD CODE */
 .container{
   left: 0;
@@ -193,24 +224,3 @@ a.list-group-item.active small {
     color:#fff;
 }
 
-
-.createCtn {
-  margin: 0 auto;
-  background-color: white;
-  color: black;
-  padding-bottom: 20px;
-  padding-top: 30px;
-  width: 600px;
-}
-
-@media (min-width: 600px) {
-    .CreateCtn {
-      margin-top: 7%;
-      width: 600px;
-    }
-}
-
-.form-horizontal {
-  padding: 10px;
-  font-size: 1.3em;
-}
